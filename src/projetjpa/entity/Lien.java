@@ -27,9 +27,12 @@ public class Lien implements Serializable {
     private String url;
     
     @ManyToOne
-    @JoinColumn(name="")
-    Film film_id;
+    @JoinColumn(name="film_id")//Nom de colonne de la clé étrangères
+    private Film film;
     
+    @ManyToOne
+    @JoinColumn(name="episode_id")//Nom de colonne de la clé étrangères
+    private Episode episode;
     
     public Long getId() {
         return id;
@@ -38,6 +41,16 @@ public class Lien implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    
+    
 
     @Override
     public int hashCode() {

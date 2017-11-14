@@ -6,10 +6,15 @@
 package projetjpa.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,8 +27,36 @@ public class Episode implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer numero;
+    private Integer numeroEpisode;
+    private String titreEpisode;
+    
+    @OneToMany(mappedBy = "episode")
+    List<Lien> liens = new ArrayList<>();
+    
+    @ManyToOne
+    @JoinColumn(name="saison_id")//Nom de colonne de la clé étrangères
+    private Saison saison;
+    
+    
 
+    public Integer getNumeroEpisode() {
+        return numeroEpisode;
+    }
+
+    public void setNumeroEpisode(Integer numeroEpisode) {
+        this.numeroEpisode = numeroEpisode;
+    }
+
+    public String getTitreEpisode() {
+        return titreEpisode;
+    }
+
+    public void setTitreEpisode(String titreEpisode) {
+        this.titreEpisode = titreEpisode;
+    }
+
+    
+    
     public Long getId() {
         return id;
     }

@@ -24,6 +24,14 @@ public class Genre implements Serializable {
     private Long id;
     private String typeGenres;
 
+    public String getTypeGenres() {
+        return typeGenres;
+    }
+
+    public void setTypeGenres(String typeGenres) {
+        this.typeGenres = typeGenres;
+    }
+
     public Long getId() {
         return id;
     }

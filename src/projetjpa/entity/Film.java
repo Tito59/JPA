@@ -24,11 +24,11 @@ public class Film implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String titre;
+    private String titreFilm;
     private Integer duree;
-    //private Date dateDeSortie;
+    private Integer dateDeSortie;
     
-    @OneToMany(mappedBy=”Film”)
+    @OneToMany(mappedBy = "film")
     List<Lien> liens = new ArrayList<>();
 
     public Long getId() {
@@ -39,6 +39,40 @@ public class Film implements Serializable {
         this.id = id;
     }
 
+    public String getTitreFilm() {
+        return titreFilm;
+    }
+
+    public void setTitreFilm(String titreFilm) {
+        this.titreFilm = titreFilm;
+    }
+
+    public Integer getDuree() {
+        return duree;
+    }
+
+    public void setDuree(Integer duree) {
+        this.duree = duree;
+    }
+
+    public Integer getDateDeSortie() {
+        return dateDeSortie;
+    }
+
+    public void setDateDeSortie(Integer dateDeSortie) {
+        this.dateDeSortie = dateDeSortie;
+    }
+
+    public List<Lien> getLiens() {
+        return liens;
+    }
+
+    public void setLiens(List<Lien> liens) {
+        this.liens = liens;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
